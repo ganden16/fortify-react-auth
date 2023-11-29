@@ -11,7 +11,11 @@ export default function Guest({children}) {
 			if(res.status == 200) {
 				navigate('/')
 			}
-		}).catch(err => {})
+		}).catch(err => {
+			if(err.response.status == 401){
+				console.log('unauthenticate')
+			}
+		})
 	}, [])
 
 	return (
