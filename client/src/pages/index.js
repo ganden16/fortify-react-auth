@@ -3,16 +3,29 @@ import Navbar from '../components/navbar'
 import axios from '../lib/axios';
 import api from '../configs/api'
 import {RiseLoader} from 'react-spinners';
+import {useSearchParams} from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 export default function Index() {
 	const [me, setMe] = useState({})
 	const [isLoading, setIsLoading] = useState(true)
+	let [searchParams, setSearchParams] = useSearchParams();
 
 	useEffect(() => {
 		axios(api.apiMe).then(res => {
 			setIsLoading(false)
 			setMe(res.data.user)
 		})
+		if(searchParams.get('verified') == 1) {
+			Swal.fire({
+				position: 'center',
+				icon: 'success',
+				title: 'Email has been verified successfuly',
+				showConfirmButton: false,
+				timer: 2000
+			})
+			setSearchParams('')
+		}
 	}, [])
 
 	return (

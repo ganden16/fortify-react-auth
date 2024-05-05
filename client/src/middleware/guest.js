@@ -8,8 +8,9 @@ export default function Guest({children}) {
 
 	useEffect(() => {
 		axios(api.apiMe).then((res) => {
+			console.log(res)
 			if(res.status == 200) {
-				navigate('/')
+				window.location = '/'
 			}
 		}).catch(err => {
 			if(err.response.status == 401){

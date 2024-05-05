@@ -7,9 +7,10 @@ export default function Auth({children}) {
 	const navigate = useNavigate()
 	useEffect(() => {
 		axios(api.apiMe).then((res) => {
+			console.log(res)
 		}).catch(err => {
 			if(err.response.status != 200) {
-				navigate('/login')
+				window.location = '/login'
 			}
 		})
 	}, [])

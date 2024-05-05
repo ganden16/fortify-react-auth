@@ -75,6 +75,9 @@ export default function ProfileInformation() {
 							showConfirmButton: false,
 							timer: 1500
 						})
+						setTimeout(() => {
+							window.location.reload()
+						}, 2000)
 					}
 				} catch(error) {
 					console.log(error)

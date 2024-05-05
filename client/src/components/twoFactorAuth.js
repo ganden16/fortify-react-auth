@@ -223,6 +223,20 @@ export default function TwoFactorAuth() {
 		}
 	}
 
+	const handleCancel2Fa =  () => {
+		Swal.fire({
+			title: 'Cancel 2Fa?',
+			text: "Anda akan membatalkan pengaktifan 2fa",
+			icon: 'warning',
+			showCancelButton: true,
+			confirmButtonColor: '#3085d6',
+			cancelButtonColor: '#d33',
+			confirmButtonText: 'Ya',
+			cancelButtonText: 'Tidak'
+		}).then(async (result) => {
+			if(result.isConfirmed) window.location.reload()
+		})
+	}
 	useEffect(() => {
 		axios.get(api.apiMe).then((res) => {
 			if(res.status == 200) {
@@ -321,7 +335,7 @@ export default function TwoFactorAuth() {
 													<MDBInput value={confirmCode2Fa.code} onChange={(e) => setConfirmCode2Fa({code: e.target.value})} wrapperClass='mt-5 mb-3 w-50' label='Code' id='code' name='code' />
 													<div className='d-flex'>
 														<MDBBtn onClick={() => handleClickConfirm2Fa()} className="mb-4 me-2">Confirm</MDBBtn>
-														<MDBBtn color='secondary' className="mb-4">Cancel</MDBBtn>
+														<MDBBtn onClick={() => handleCancel2Fa()} color='secondary' className="mb-4">Cancel</MDBBtn>
 													</div>
 												</div>
 											</div>
