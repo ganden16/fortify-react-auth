@@ -51,7 +51,7 @@ function App() {
 					timer: 2000
 				})
 				setTimeout(() => {
-					navigate('/login')
+					window.location = '/'
 				}, 2500)
 			}
 		} catch(error) {
