@@ -1,5 +1,6 @@
 export default {
 	// auth
+	apiAkses:`/api/akses`,
 	apiLogin: `/api/login`,
 	apiRegister: `/api/register`,
 	apiLogout: `/api/logout`,

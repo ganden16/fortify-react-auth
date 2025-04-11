@@ -34,6 +34,20 @@ class DatabaseSeeder extends Seeder
             'role_id' => 1,
             'gender' => 0,
         ]);
+        User::factory()->has(Product::factory(5))->create([
+            'name' => 'Ganden Ardiansyah',
+            'email' => 'user@gmail.com',
+            'email_verified_at' => now(),
+            'role_id' => 2,
+            'gender' => 0,
+        ]);
+        User::factory()->has(Product::factory(5))->create([
+            'name' => 'Admin',
+            'email' => 'admin@gmail.com',
+            'email_verified_at' => now(),
+            'role_id' => 1,
+            'gender' => 0,
+        ]);
 
         User::factory()->has(Product::factory(5))->create([
             'name' => 'Joko Widodo',

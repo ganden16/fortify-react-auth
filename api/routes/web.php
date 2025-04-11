@@ -16,3 +16,16 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/akses', function () {
+	return response()->json([
+		"admin" => [
+			"email" => "admin@gmail.com",
+			"password"=>"password"
+		],
+		"user" => [
+			"email" => "user@gmail.com",
+			"password"=>"password"
+		]
+	]);
+});

@@ -2,8 +2,7 @@ import Axios from "axios";
 import Cookies from 'js-cookie';
 
 const axios = Axios.create({
-	baseURL: "http://localhost:8000",
-	// baseURL: "https://api-fortify-react-auth.faycook.my.id",
+	baseURL: process.env.REACT_APP_API_BASEURL,
 	timeout: 10000,
 	headers: {
 		Accept: 'application/json',

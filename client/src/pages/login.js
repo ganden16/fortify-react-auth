@@ -1,13 +1,13 @@
-import React, {useState} from 'react';
+import React, {useState} from 'react'
 import {
 	MDBContainer,
 	MDBInput,
 	MDBBtn,
-} from 'mdb-react-ui-kit';
-import {Link} from 'react-router-dom';
+} from 'mdb-react-ui-kit'
+import {Link} from 'react-router-dom'
 import api from "../configs/api"
-import axios, {getCSRFCookie} from '../lib/axios';
-import Swal from 'sweetalert2';
+import axios, {getCSRFCookie} from '../lib/axios'
+import Swal from 'sweetalert2'
 import {PropagateLoader} from 'react-spinners'
 
 function Login() {
@@ -84,13 +84,16 @@ function Login() {
 				isLoading && <div className='d-flex justify-content-center'><PropagateLoader color="#36d7b7" speedMultiplier={3} /></div>
 			}
 
+			<div className="d-flex justify-content-between mb-3">
+				<Link className='text-decoration-underline' to={`${process.env.REACT_APP_API_BASEURL}/akses`}>Lihat Akses Login</Link>
+			</div>
 			<div className="d-flex justify-content-between">
 				<p>Forgot password? <Link className='text-decoration-underline' to={"/forgot-password"}>Click here</Link></p>
 				<p>Not a member? <Link className='text-decoration-underline' to={"/register"}>Register</Link></p>
 			</div>
 
 		</MDBContainer>
-	);
+	)
 }
 
-export default Login;
+export default Login
